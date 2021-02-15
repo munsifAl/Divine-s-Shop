@@ -1,12 +1,24 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Header from './commponents/Header'
+import Footer from './commponents/Footer'
+import HomeScreen from './screens/HomeScreen'
+import ProductScreen from './screens/ProductScreen'
+import {Container} from 'react-bootstrap'
 
 function App() {
   return (
-    <>
-     <h1> welcome TO Divine's Shop 
-    </h1>
-    </>
-  );
+    <Router>
+      <Header />
+      <main className='py-3'>
+        <Container>
+          <Route path='/' component={HomeScreen} exact />
+          <Route path='/product/:id' component={ProductScreen} />
+        </Container>
+      </main>
+      <Footer />
+    </Router>
+  )
 }
 
-export default App;
+export default App
